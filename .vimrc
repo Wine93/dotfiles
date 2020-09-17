@@ -4,51 +4,59 @@
 " Bundle {
     set nocompatible
     filetype off
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#rc()
-        Plugin 'VundleVim/Vundle.vim'
-        Plugin 'gmarik/vundle'
-        Plugin 'godlygeek/tabular'
-        Plugin 'altercation/vim-colors-solarized'
-        Plugin 'bronson/vim-trailing-whitespace'
-        Plugin 'Valloric/YouCompleteMe'
-        Plugin 'scrooloose/syntastic'
-        Plugin 'ervandew/supertab'
-        Plugin 'mattn/webapi-vim'
-        Plugin 'mattn/gist-vim'
-        Plugin 'Lokaltog/vim-powerline'
-        Plugin 'tpope/vim-fugitive'
-        Plugin 'scrooloose/nerdtree'
-        Plugin 'humiaozuzu/TabBar'
-        Plugin 'majutsushi/tagbar'
-        Plugin 'Yggdroot/indentLine'
-        "Plugin 'SirVer/ultisnips'
-        Plugin 'vim-scripts/matchit.zip'
-        Plugin 'gregsexton/MatchTag'
-        Plugin 'tpope/vim-surround'
-        "Plugin 'dgryski/vim-godef'
-        "Plugin 'Blackrush/vim-gocode'
-        Plugin 'fatih/vim-go'
-        Plugin 'ianva/vim-youdao-translater'
-        Plugin 'vimcn/vimcdoc'
-        Plugin 'mbbill/undotree'
-        Plugin 'kshenoy/vim-signature'
-        Plugin 'Lokaltog/vim-easymotion'
-        Plugin 'sjl/gundo.vim'
-        Plugin 'dyng/ctrlsf.vim'
-        Plugin 'kien/ctrlp.vim'
-        Plugin 'tacahiroy/ctrlp-funky'
-        Plugin 'terryma/vim-multiple-cursors'
-        Plugin 'suan/vim-instant-markdown'
-        Plugin 'iamcco/markdown-preview.vim'
-        Plugin 'airblade/vim-gitgutter'
-        Plugin 'scrooloose/nerdcommenter'
-        Plugin 'ervandew/screen'
-        Plugin 'mileszs/ack.vim'
-        "Plugin 'Shougo/vimshell.vim'
-        "Plugin 'Shougo/vimproc'
-        Plugin 'vim-scripts/DrawIt'
-    call vundle#end()
+    call plug#begin('~/.vim/plugged')
+        Plug 'airblade/vim-gitgutter'
+        Plug 'altercation/vim-colors-solarized'
+        Plug 'bronson/vim-trailing-whitespace'
+        Plug 'dyng/ctrlsf.vim'
+        Plug 'ervandew/screen'
+        Plug 'ervandew/supertab'
+        Plug 'fatih/vim-go'
+        Plug 'godlygeek/tabular'
+        Plug 'gregsexton/MatchTag'
+        Plug 'iamcco/markdown-preview.vim'
+        Plug 'ianva/vim-youdao-translater'
+        Plug 'Konfekt/FastFold'
+        Plug 'kshenoy/vim-signature'
+        Plug 'Lokaltog/vim-easymotion'
+        Plug 'majutsushi/tagbar'
+        Plug 'mattn/gist-vim'
+        Plug 'mattn/webapi-vim'
+        Plug 'mbbill/undotree'
+        Plug 'powerline/powerline'
+        Plug 'scrooloose/nerdcommenter'                   " Comment functions so powerful—no comment necessary.
+        Plug 'scrooloose/nerdtree'
+        Plug 'sjl/gundo.vim'
+        Plug 'suan/vim-instant-markdown'
+        Plug 'tacahiroy/ctrlp-funky'
+        Plug 'terryma/vim-multiple-cursors'
+        Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-surround'
+        Plug 'Valloric/YouCompleteMe'
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+        Plug 'vim-scripts/DrawIt'
+        Plug 'vim-scripts/matchit.zip'
+        Plug 'vimcn/vimcdoc'
+        Plug 'Yggdroot/indentLine'                        " A vim plugin to display the indention levels with thin vertical lines
+        Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly for both vim and neovim.
+        Plug 'francoiscabrol/ranger.vim'
+
+        "Plug 'Blackrush/vim-gocode'
+        "Plug 'bling/vim-bufferline'
+        "Plug 'dgryski/vim-godef'
+        "Plug 'humiaozuzu/TabBar'
+        "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+        "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        "Plug 'junegunn/fzf.vim'
+        "Plug 'kien/ctrlp.vim'
+        "Plug 'mileszs/ack.vim'
+        "Plug 'scrooloose/syntastic'
+        "Plug 'Shougo/vimproc'
+        "Plug 'Shougo/vimshell.vim'
+        "Plug 'SirVer/ultisnips'
+        "Plug '~/.fzf'
+    call plug#end()
 " }
 
 
@@ -101,8 +109,8 @@
     set tabstop=4                   " An indentation every four columns
     set softtabstop=4               " Let backspace delete indent
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-    "set splitright                  " Puts new vsplit windows to the right of the current
-    "set splitbelow                  " Puts new split windows to the bottom of the current
+    set splitright                  " Puts new vsplit windows to the right of the current
+    set splitbelow                  " Puts new split windows to the bottom of the current
     "autocmd                         " Remove trailing whitespaces and ^M chars
     "    \ FileType c,cpp,go,python
     "    \ autocmd BufWritePre <buffer> call StripTrailingWhitespace()
@@ -111,27 +119,6 @@
 
 " Key (re)Mappings {
     let mapleader=','
-
-    " Go to next buffer in buffer list
-    noremap <F1> :bp<CR>
-
-    " Go to next buffer in buffer list
-    noremap <F2> :bn<CR>
-
-    " ScreenSend
-    noremap <F3> :. ScreenSend<cr>
-
-    " UndotreeToggle
-    noremap <F4> :UndotreeToggle<cr>
-
-    " Tagbar Toggle
-    nmap <F5> :TagbarToggle<cr>
-
-    " NERDTree Toggle
-    nmap <F6> :NERDTreeToggle<cr>
-
-    " pastetoggle (sane indentation on pastes)
-    set pastetoggle=<F9>
 
     " Delete buffer
     noremap <leader>bw :bw<CR>
@@ -145,17 +132,26 @@
     " Exit Vim, unless there are some buffers which have been changed
     noremap <leader>q :qa!<CR>
 
-    " Search forward using very magic mode
-    nnoremap <leader>/ /\v
+    " Reload vim configure
+    noremap <leader>r :source ~/.vimrc<CR>
 
-    " Search backward using very magic mode
-    nnoremap <leader>? ?\v
+    "
+    noremap <leader>/ :LeaderfLine<CR>
 
-    " Map <Leader>ff to display all lines with keyword under cursor and ask which one to jump to
-    nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+    "
+    "#noremap <leader>? :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
+
+    "
+    noremap <C-R> :LeaderfHistorySearch<CR>
+
+    "
+    noremap <C-T> :LeaderfFile<CR>
+
+    "
+    noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
     " Find merge conflict markers
-    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+    noremap <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
     " Change Working Directory to that of the current file
     cnoremap cwd lcd %:p:h
@@ -175,6 +171,67 @@
     " ScreenShell open and quit
     noremap <leader>ss :ScreenShell<cr>
     noremap <leader>sq :ScreenQuit<cr>
+
+    map <leader>w! :w !sudo tee %<cr>
+
+    " Go to next buffer in buffer list
+    noremap <F1> :bp<CR>
+
+    " Go to next buffer in buffer list
+    noremap <F2> :bn<CR>
+
+    noremap <F3> :LeaderfBufTag<CR>
+
+    " Undotree Toggle
+    noremap <F4> :UndotreeToggle<CR>
+
+    " Tagbar Toggle
+    noremap <F5> :TagbarToggle<CR>
+
+    " NERDTree Toggle (replace by ranger)
+    noremap <F6> :RangerWorkingDirectory<CR>
+
+    " Open markdown preview
+    noremap <F7> :MarkdownPreview<CR>
+
+    " Paste Mode Toggle (sane indentation on pastes)
+    set pastetoggle=<F9>
+
+    " Strip trailing whitespace
+    noremap <F10> :call StripTrailingWhitespace()<CR>
+
+
+    " xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+    " search visually selected text literally
+    " noremap go :<C-U>Leaderf! rg --recall<CR>
+
+    " let g:Lf_ShortcutF = "<leader>ff"
+    " noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+    " noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+    " noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+    " noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+    " nnoremap <Leader>a :Ag<CR>
+
+
+
+    " Search forward using very magic mode
+    " nnoremap <leader>/ /\v
+
+    " Search backward using very magic mode
+    " nnoremap <leader>? ?\v
+
+    " Map <Leader>ff to display all lines with keyword under cursor and ask which one to jump to
+    " nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+    " should use `Leaderf gtags --update` first
+    " let g:Lf_GtagsAutoGenerate = 0
+    " let g:Lf_Gtagslabel = 'native-pygments'
+    " noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+    " noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+    " noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+    " noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+    " noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 " }
 
 
@@ -184,13 +241,13 @@
     " }
 
     " syntastic {
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        set statusline+=%*
-        let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_auto_loc_list = 1
-        let g:syntastic_check_on_open = 1
-        let g:syntastic_check_on_wq = 0
+    "    set statusline+=%#warningmsg#
+    "    set statusline+=%{SyntasticStatuslineFlag()}
+    "    set statusline+=%*
+    "    let g:syntastic_always_populate_loc_list = 1
+    "    let g:syntastic_auto_loc_list = 1
+    "    let g:syntastic_check_on_open = 1
+    "    let g:syntastic_check_on_wq = 0
     " }
 
     " supertab {
@@ -226,15 +283,18 @@
         let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
         let g:UltiSnipsSnippetDirectories = ["snippets", "bundle/ultisnips/UltiSnips"]
     " }
+    "
+    "
 
     " tagbar {
         let g:tagbar_left = 1
-        let g:tagbar_width = 30
+        let g:tagbar_width = 40
         let g:tagbar_autofocus = 1
         let g:tagbar_sort = 0
         let g:tagbar_compact = 1
         let g:indentLine_color_term = 239
         let g:indentLine_char = '|'
+        let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
         "let g:tagbar_type_lua = {
         "    \ 'ctagstype' : 'lua',
@@ -305,6 +365,7 @@
         let NERDTreeIgnore = ['\~$', '\.pyc$', '\.swp$']
         let NERDTreeSortOrder = ['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
         let NERDTreeShowBookmarks = 1
+        let NERDTreeShowHidden = 1
         let NERDTreeWinPos = "right"
     " }
 
@@ -342,7 +403,7 @@
     "}
 
     " vim-gitgutter {
-        set updatetime=250                " Delay
+        set updatetime=750                " Delay
         let gitgutter_highlight_lines = 1 " To turn on line highlighting by default
     " }
 
@@ -377,6 +438,99 @@
     "}
 
     " screen {
+    " }
+
+    " markdown-preview {
+		" set to 1, the nvim will auto close current preview window when change
+		" from markdown buffer to another buffer
+		" default: 1
+		let g:mkdp_auto_close = 0
+        let g:mkdp_markdown_css='/Users/wine93/Home/.local/lib/github-markdown-css/github-markdown.css'
+    " }
+
+    " FastFold {
+        nmap zuz <Plug>(FastFoldUpdate)
+        let g:fastfold_savehook = 1
+        let g:fastfold_fold_command_suffixes = ['x','X','a','A','o','O','c','C']
+        let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+
+        let g:markdown_folding = 1
+        let g:tex_fold_enabled = 1
+        let g:vimsyn_folding = 'af'
+        let g:xml_syntax_folding = 1
+        let g:javaScript_fold = 1
+        let g:sh_fold_enabled= 7
+        let g:ruby_fold = 1
+        let g:perl_fold = 1
+        let g:perl_fold_blocks = 1
+        let g:r_syntax_folding = 1
+        let g:rust_fold = 1
+        let g:php_folding = 1
+    " }
+
+    " vim-airline/vim-airline {
+        let g:airline_section_c = '%F'
+        let g:airline_powerline_fonts = 1
+
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline#extensions#tabline#left_sep = ''
+        let g:airline#extensions#tabline#left_alt_sep = ''
+        let g:airline#extensions#tabline#right_sep = ''
+        let g:airline#extensions#tabline#right_alt_sep = ''
+        let g:airline#extensions#tabline#formatter = 'unique_tail'
+    " }
+
+    " vim-airline/vim-airline-themes {
+        let g:airline_theme = 'molokai'
+    " }
+
+    " junegunn/fzf.vim {
+    "    command! -bang -nargs=? -complete=dir Files
+    "        \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat {}']}, <bang>0)
+    " }
+
+    " francoiscabrol/ranger.vim {
+        let g:NERDTreeHijackNetrw = 0  " Add this line if you use NERDTree
+        let g:ranger_replace_netrw = 1 " Open ranger when vim open a directory
+        let g:ranger_command_override = '/Users/wine93/.local/app/ranger/ranger-1.9.3/ranger.py --cmd "set show_hidden=true"'
+    " }
+
+    " Yggdroot/LeaderF {
+        let g:Lf_HideHelp = 1
+	    let g:Lf_UseCache = 0
+	    let g:Lf_UseVersionControlTool = 0
+	    let g:Lf_IgnoreCurrentBufferName = 1
+
+		" popup mode
+        let g:Lf_WindowPosition = 'popup'
+        let g:Lf_PreviewInPopup = 1
+        let g:Lf_PopupPosition = [float2nr(&lines * 0.1), 0]
+        let g:Lf_PopupWidth = &columns * 3 / 4
+        let g:Lf_PopupHeight = float2nr(&lines * 0.3)
+		let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+
+        let g:Lf_PreviewCode = 1
+        let g:Lf_PopupPreviewPosition = 'bottom'
+        let g:Lf_PreviewPopupWidth = float2nr(&lines * 0.3)
+        let g:Lf_AutoResize = 1
+        let g:Lf_PreviewResult = {
+            \ 'File': 1,
+            \ 'Buffer': 1,
+            \ 'Mru': 1,
+            \ 'Tag': 1,
+            \ 'BufTag': 1,
+            \ 'Function': 1,
+            \ 'Line': 1,
+            \ 'Colorscheme': 1,
+            \ 'Rg': 1,
+            \ 'Gtags': 1
+            \}
+
+        " UI
+        let g:Lf_ShowDevIcons = 1 " Show icons, icons are shown by default
+        let g:Lf_DevIconsFont = "DroidSansMono Nerd Font Mono" " For GUI vim, the icon font can be specify like this, for example
+
+        set ambiwidth=double " If needs
     " }
 " }
 
